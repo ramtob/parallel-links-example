@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+}
+
+.example-view {
+  height: 90%;
+}
+
+.example-svg {
+  border: 1px solid orange;
+}
+
+.example-node {
+    fill: brown;
+    stroke: black;
+    stroke-width: 1px;
+}
+
+.example-link {
+    stroke-width: 2px;
+}
+
+
+    

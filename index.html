@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="style.css"  rel="stylesheet">
+</head>
+<body>
+    <div class="example-controls">
+      <label for="radio-exact">Exact</label>
+      <input type="radio" name="calculation" id="radio-exact" value="e" onchange="radioChange(this)">
+      <label for="radio-approx">Approximate</label>
+      <input type="radio" name="calculation" id="radio-approx" value="a" onchange="radioChange(this)">
+    </div>
+    <div id="example1" class="example-view"></div>
+    <!-- scripts -->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="ParallelLinksExample.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
