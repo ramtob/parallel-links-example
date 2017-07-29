@@ -1,0 +1,27 @@
+{
+  "name": "parallel-links-example",
+  "version": "1.0.0",
+  "description": "Blablabla",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramtob/parallel-links-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramtob/parallel-links-example/issues"
+  },
+  "homepage": "https://github.com/ramtob/parallel-links-example#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1"
+  }
+}
