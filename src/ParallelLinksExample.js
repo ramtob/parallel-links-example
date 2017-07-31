@@ -1,6 +1,5 @@
-"use strict";
 
-class ParallelLinksExample {
+export default class ParallelLinksExample {
 
   constructor(containerId) {
 
