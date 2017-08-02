@@ -1,9 +1,6 @@
+import ParallelLinksExample from './ParallelLinksExample.js';
 
+var element = document.createElement('div');
+element.id = 'example1';
 
 var instance = new ParallelLinksExample('example1');
-
-document.getElementById("radio-exact").checked = true;
-
-function radioChange(element) {
-  instance.setCalculationExact(element.value === 'e');
-}
