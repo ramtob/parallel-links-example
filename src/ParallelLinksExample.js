@@ -1,3 +1,5 @@
+import d3All from 'd3';
+import parallelLinks from 'd3-parallel-links';
 
 export default class ParallelLinksExample {
 
