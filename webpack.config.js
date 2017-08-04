@@ -8,10 +8,11 @@ module.exports = {
         app: './src/index.js',
         ParallelLinksExample: './src/ParallelLinksExample.js'
     },
+    devtool: 'inline-source-map',
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Parallel Links Example'
         })
     ],
     output: {
