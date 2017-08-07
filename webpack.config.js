@@ -9,6 +9,9 @@ module.exports = {
         ParallelLinksExample: './src/ParallelLinksExample.js'
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist'
+    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
