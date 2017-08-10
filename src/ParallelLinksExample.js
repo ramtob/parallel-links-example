@@ -56,7 +56,7 @@ export default class ParallelLinksExample {
 
     // Create a force layout object
 
-    var force = d3.layout.force()
+    var force = d3.forceSimulation()
       .size([WIDTH, HEIGHT])
       .nodes(this.nodes)
       .links(this.links)
