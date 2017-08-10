@@ -1,5 +1,6 @@
-import d3All from 'd3';
-import parallelLinks from 'd3-parallel-links';
+var d3 =
+require('d3');
+require ('d3-parallel-links');
 
 export default class ParallelLinksExample {
 
