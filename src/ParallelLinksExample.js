@@ -58,7 +58,7 @@ export default class ParallelLinksExample {
 
         // Create a force layout object
 
-        var force = d3.forceSimulation().stop()
+        var force = d3.forceSimulation()
             // .size([WIDTH, HEIGHT])
             // .links(this.links)
             // .linkDistance(WIDTH / 3.5)
@@ -102,7 +102,6 @@ export default class ParallelLinksExample {
         this.setCalculationExact(true);
 
         // Start the force simulation
-        force.alpha(MAX_ALPHA);
         // force.start();
 
         /**
@@ -147,7 +146,10 @@ export default class ParallelLinksExample {
          * Make the demo simulation permanent, by resuming it when it ends.
          */
         force.on('end', function () {
-            force.resume();
+            force.alpha(MAX_ALPHA)
+                .restart()
+            // force.resume()
+            ;
         });
     }
 
