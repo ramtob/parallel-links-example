@@ -54,7 +54,8 @@ export default class ParallelLinksExample {
         this.nodes = graph.nodes;
         this.links = graph.links;
 
-        this.prepareLinks();
+        d3.parallelLinksInitLinks(this.links);
+//        this.prepareLinks();
 
         // Create a force layout object
 
@@ -223,7 +224,7 @@ export default class ParallelLinksExample {
      * @description
      * Build an index to help handle the case of multiple links between two nodes
      */
-    prepareLinks() {
+   /* prepareLinks() {
         var that = this,
             linksFromNodes = {};
         this.links.forEach(function (val, idx) {
@@ -240,6 +241,6 @@ export default class ParallelLinksExample {
             // 1 -> 0, 2 -> 2, 3-> -2, 4 -> 4, 5 -> -4, ...
             val.targetDistance = (val.multiIdx % 2 === 0 ? val.multiIdx * that.LINK_WIDTH : (-val.multiIdx + 1) * that.LINK_WIDTH);
         });
-    }
+    }*/
 
 }
