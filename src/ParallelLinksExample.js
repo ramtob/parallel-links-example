@@ -100,7 +100,8 @@ export default class ParallelLinksExample {
             // .call(drag)
         ;
 
-        this.setCalculationExact(true);
+        d3.parallelLinksSetMethodExact();
+        // this.setCalculationExact(true);
 
         // Start the force simulation
         // force.start();
@@ -136,10 +137,12 @@ export default class ParallelLinksExample {
                 .attr('stroke', function (d) {
                     return d.color;
                 })
-                .attr('transform', function (d) {
-                    var translation = that.calcTranslation(d.targetDistance, d.source, d.target);
-                    return `translate (${translation.dx}, ${translation.dy})`;
-                });
+                .attr('transform', d3.parallelLinksTransform)
+                // .attr('transform', function (d) {
+                //     var translation = that.calcTranslation(d.targetDistance, d.source, d.target);
+                //     return `translate (${translation.dx}, ${translation.dy})`;
+                // })
+            ;
         });
 
         /**
@@ -163,7 +166,7 @@ export default class ParallelLinksExample {
      * between the given line segment and the translated line segment equals
      * targetDistance
      */
-    static calcTranslationExact(targetDistance, point0, point1) {
+    /*static calcTranslationExact(targetDistance, point0, point1) {
         var x1_x0 = point1.x - point0.x,
             y1_y0 = point1.y - point0.y,
             x2_x0, y2_y0;
@@ -179,7 +182,7 @@ export default class ParallelLinksExample {
             dx: x2_x0,
             dy: y2_y0
         };
-    }
+    }*/
 
     /**
      * @param {number} targetDistance
@@ -190,7 +193,7 @@ export default class ParallelLinksExample {
      * between the given line segment and the translated line segment satisfies
      * the condition: targetDistance < distance < 1.42 * targetDistance
      */
-    static calcTranslationApproximate(targetDistance, point0, point1) {
+    /*static calcTranslationApproximate(targetDistance, point0, point1) {
         var x1_x0 = point1.x - point0.x,
             y1_y0 = point1.y - point0.y,
             x2_x0, y2_y0;
@@ -207,18 +210,20 @@ export default class ParallelLinksExample {
             dx: x2_x0,
             dy: y2_y0
         };
-    }
+    }*/
 
     /**
      * @description
      * Select calculation method: exact or approximate.
      * @param {boolean} on Set exact calculation
      */
+/*
     setCalculationExact(on) {
         this.calcTranslation =
             (on ? ParallelLinksExample.calcTranslationExact :
                 ParallelLinksExample.calcTranslationApproximate);
     }
+*/
 
     /**
      * @description
