@@ -59,25 +59,29 @@ export default class ParallelLinksExample {
 
         // Create a force layout object
 
-        var force = d3.forceSimulation()
+        this.simulation = d3.forceSimulation()
             // .size([WIDTH, HEIGHT])
             // .links(this.links)
             // .linkDistance(WIDTH / 3.5)
         ;
 
+        // set simulation related api's
+        this.stop = () => {this.simulation.stop()};
+        this.restart = () => {this.simulation.restart()};
+
         // Center-around force
         var forceCenter = d3.forceCenter(WIDTH / 2, HEIGHT / 2);
-        force.force("center", forceCenter);
+        this.simulation.force("center", forceCenter);
 
         // Add nodes to the simulation
-        force.nodes(this.nodes);
+        this.simulation.nodes(this.nodes);
 
         // Add links (with link force) to the simulation
         var linkForce = d3.forceLink(this.links).id(function (d, i) {
             return i;
         });
         linkForce.distance(WIDTH / 3.5);
-        force.force("link", linkForce);
+        this.simulation.force("link", linkForce);
 
         // var drag = force.drag();
 
@@ -109,7 +113,7 @@ export default class ParallelLinksExample {
         /**
          * @decription tick event listener
          */
-        force.on('tick', function () {
+        this.simulation.on('tick', function () {
             // Add some randomization to node location, for fun.
             node
                 .attr('cx', function (d) {
@@ -149,8 +153,8 @@ export default class ParallelLinksExample {
          * @description
          * Make the demo simulation permanent, by resuming it when it ends.
          */
-        force.on('end', function () {
-            force.alpha(MAX_ALPHA)
+        this.simulation.on('end', () => {
+            this.simulation.alpha(MAX_ALPHA)
                 .restart()
             // force.resume()
             ;
