@@ -54,7 +54,7 @@ export default class ParallelLinksExample {
         this.nodes = graph.nodes;
         this.links = graph.links;
 
-        d3.parallelLinksInitLinks(this.links);
+        d3.parallelLinksInitLinks(this.links, 2);
 //        this.prepareLinks();
 
         // Create a force layout object
