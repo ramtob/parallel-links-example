@@ -1,4 +1,4 @@
-var d3 = Object.assign({},
+let d3 = Object.assign({},
     require('d3'),
     require('d3-parallel-links'));
 
@@ -6,22 +6,22 @@ export default class ParallelLinksExample {
 
     constructor(containerId) {
 
-        var container = document.getElementById(containerId);
+        let container = document.getElementById(containerId);
 
-        var that = this;
+        let that = this;
 
-        var MARGIN = 10,
+        let MARGIN = 10,
             VIEW_WIDTH = Math.min(container.offsetHeight, container.offsetWidth) - 2 * MARGIN,
             HEIGHT = VIEW_WIDTH,
             WIDTH = VIEW_WIDTH,
             MAX_ALPHA = 1.0
         ;
 
-        this.LINK_WIDTH = 2;
+        // this.LINK_WIDTH = 2;
 
         // Define the data for the visualization.
 
-        var graph = {
+        let graph = {
             "nodes": [{}, {}],
             "links": [{
                 "target": 1,
@@ -44,7 +44,7 @@ export default class ParallelLinksExample {
 
         // Create an SVG container to hold the visualization
 
-        var svg = d3.select(container)
+        let svg = d3.select(container)
             .append('svg')
             .classed('example-svg', true)
             .attr('width', WIDTH)
@@ -54,7 +54,7 @@ export default class ParallelLinksExample {
         this.nodes = graph.nodes;
         this.links = graph.links;
 
-        d3.parallelLinksInitLinks(this.links, 2);
+        d3.parallelLinksInitLinks(this.links);
 //        this.prepareLinks();
 
         // Create a force layout object
@@ -70,14 +70,14 @@ export default class ParallelLinksExample {
         this.restart = () => {this.simulation.restart()};
 
         // Center-around force
-        var forceCenter = d3.forceCenter(WIDTH / 2, HEIGHT / 2);
+        let forceCenter = d3.forceCenter(WIDTH / 2, HEIGHT / 2);
         this.simulation.force("center", forceCenter);
 
         // Add nodes to the simulation
         this.simulation.nodes(this.nodes);
 
         // Add links (with link force) to the simulation
-        var linkForce = d3.forceLink(this.links).id(function (d, i) {
+        let linkForce = d3.forceLink(this.links).id(function (d, i) {
             return i;
         });
         linkForce.distance(WIDTH / 3.5);
@@ -87,7 +87,7 @@ export default class ParallelLinksExample {
 
         // Draw the links
 
-        var link = svg.selectAll('.link')
+        let link = svg.selectAll('.link')
             .data(this.links)
             .enter()
             .append('line')
@@ -95,12 +95,12 @@ export default class ParallelLinksExample {
 
         // Draw the nodes
 
-        var node = svg.selectAll('.node')
-            .data(this.nodes)
-            .enter()
-            .append('circle')
-            .classed('example-node', true)
-            .attr('r', WIDTH / 30)
+        let node = svg.selectAll('.node')
+                .data(this.nodes)
+                .enter()
+                .append('circle')
+                .classed('example-node', true)
+                .attr('r', WIDTH / 30)
             // .call(drag)
         ;
 
@@ -117,11 +117,11 @@ export default class ParallelLinksExample {
             // Add some randomization to node location, for fun.
             node
                 .attr('cx', function (d) {
-                    var rand = Math.floor(Math.random() * 3) - 1;
+                    let rand = Math.floor(Math.random() * 3) - 1;
                     return d.x += rand;
                 })
                 .attr('cy', function (d) {
-                    var rand = Math.floor(Math.random() * 3) - 1;
+                    let rand = Math.floor(Math.random() * 3) - 1;
                     return d.y += rand;
                 });
 

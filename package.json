@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "d3": "^4.10.0",
-    "d3-parallel-links": "^1.0.1"
+    "d3-parallel-links": "^0.1.0"
   }
 }
