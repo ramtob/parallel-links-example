@@ -5,22 +5,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
-        ParallelLinksExample: './src/ParallelLinksExample.js'
+        app: './src/index.js'
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './docs'
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['docs']),
         new HtmlWebpackPlugin({
             title: 'Parallel Links Example'
         })
     ],
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'docs')
     },
     module: {
         rules: [
